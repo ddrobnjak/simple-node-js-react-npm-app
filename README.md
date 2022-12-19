@@ -1,14 +1,20 @@
-# simple-node-js-react-npm-app
+## 1 - Create pipeline Jenkins job for JS project
 
-This repository is for the
-[Build a Node.js and React app with npm](https://jenkins.io/doc/tutorials/build-a-node-js-and-react-app-with-npm/)
-tutorial in the [Jenkins User Documentation](https://jenkins.io/doc/).
+### Install NodeJS Plugin
 
-The repository contains a simple Node.js and React application which generates
-a web page with the content "Welcome to React" and is accompanied by a test to
-check that the application renders satisfactorily.
+1) Go to **Manage Jenkins** -> **Manage Plugins**
+2) Select Available plugins and search **NodeJS**, check install and click **Install without restart**
 
-The `jenkins` directory contains an example of the `Jenkinsfile` (i.e. Pipeline)
-you'll be creating yourself during the tutorial and the `scripts` subdirectory
-contains shell scripts with commands that are executed when Jenkins processes
-the "Test" and "Deliver" stages of your Pipeline.
+### Add NodeJS Installation
+
+1) Go to **Manage Jenkins** -> **Global Tool Configuration**
+2) Find **NodeJS** section and click Add **NodeJs**
+3) Add name for Go installation, check **Install automatically**, choose NodeJS version, leave rest as default and **Save** changes
+
+### Create Jenkins pipeline job
+    
+1) Create Jenkinsfile on Repository and add pipeline code inside
+2) Go to **Jenkins Dashboard** and click **New Item**, enter Item Name and choose **Pipeline**
+3) In Pipeline section select **Pipeline script from SCM** and choose **Git**
+4) Provide Repository URL and Credentials created in previous steps, and select which Branch to build and fill Script path with path to Jenkinsfile on Repository
+5) **Save** changes and click **Build now**
